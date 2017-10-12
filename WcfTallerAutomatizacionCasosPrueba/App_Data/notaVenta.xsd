@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="notaVenta">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ruc" type="rucType"/>
+				<xsd:element name="categoria" type="categoriaType"/>
+				<xsd:element name="monto" type="montoType"/>
+				<xsd:element name="porcentajeImpuesto" type="porcentajeImpuestoType"/>
+				<xsd:element name="total" type="montoType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:simpleType name="rucType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="1-1-1"/>
+			<xsd:enumeration value="2-2-2"/>
+			<xsd:enumeration value="3-3-3"/>
+			<xsd:enumeration value="4-4-4"/>
+			<xsd:enumeration value="5-5-5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="categoriaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="VIVERES"/>
+			<xsd:enumeration value="LIMPIEZA"/>
+			<xsd:enumeration value="LICORES"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="montoType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="11"/>
+			<xsd:fractionDigits value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="porcentajeImpuestoType">
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="7"/>
+			<xsd:enumeration value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
